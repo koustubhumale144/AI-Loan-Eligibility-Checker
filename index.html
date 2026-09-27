@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Financial Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- NAVIGATION -->
+        <nav class="top-nav">
+
+            <a href="#top">🏠 Dashboard</a>
+
+            <a href="#loan-section">🏦 Loan</a>
+
+            <a href="#emi-section">🧮 EMI</a>
+
+            <a href="#credit-section">📊 Credit</a>
+
+            <a href="#ai-section">🤖 Insights</a>
+
+        </nav>
+
+
+        <!-- HEADER -->
+        <header class="hero" id="top">
+
+            <h1>AI Financial Assistant</h1>
+
+            <p>Smart financial tools for better decisions.</p>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <div class="feature-grid">
+
+            <a href="#loan-section" class="feature-card">
+
+                <span>🏦</span>
+
+                <h3>Loan Eligibility</h3>
+
+                <p>Check your estimated loan eligibility.</p>
+
+            </a>
+
+
+            <a href="#emi-section" class="feature-card">
+
+                <span>🧮</span>
+
+                <h3>EMI Calculator</h3>
+
+                <p>Calculate your estimated monthly EMI.</p>
+
+            </a>
+
+
+            <a href="#credit-section" class="feature-card">
+
+                <span>📊</span>
+
+                <h3>Credit Analyzer</h3>
+
+                <p>Analyze your entered credit score.</p>
+
+            </a>
+
+
+            <a href="#ai-section" class="feature-card">
+
+                <span>🤖</span>
+
+                <h3>AI Financial Tips</h3>
+
+                <p>Get simple financial insights.</p>
+
+            </a>
+
+        </div>
+
+
+        <!-- FINANCIAL SUMMARY -->
+        <section id="summary-section" class="tool-card">
+
+            <h2>📋 Financial Summary</h2>
+
+            <p>
+                Enter your basic financial information to generate a quick
+                financial profile.
+            </p>
+
+
+            <label for="summaryIncome">
+                Monthly Income (₹)
+            </label>
+
+            <input
+                type="number"
+                id="summaryIncome"
+                placeholder="Enter monthly income"
+            >
+
+
+            <label for="summaryEmi">
+                Existing Monthly EMI (₹)
+            </label>
+
+            <input
+                type="number"
+                id="summaryEmi"
+                placeholder="Enter existing EMI"
+            >
+
+
+            <label for="summaryCreditScore">
+                Credit Score
+            </label>
+
+            <input
+                type="number"
+                id="summaryCreditScore"
+                placeholder="Enter credit score"
+            >
+
+
+            <label for="summaryLoanAmount">
+                Requested Loan Amount (₹)
+            </label>
+
+            <input
+                type="number"
+                id="summaryLoanAmount"
+                placeholder="Enter requested loan amount"
+            >
+
+
+            <label for="summaryTenure">
+                Loan Tenure (Years)
+            </label>
+
+            <input
+                type="number"
+                id="summaryTenure"
+                placeholder="Enter loan tenure"
+            >
+
+
+            <button id="summaryButton">
+                Generate Financial Summary
+            </button>
+
+
+            <div id="summaryResult" class="result-card"></div>
+
+        </section>
+
+
+        <!-- LOAN ELIGIBILITY -->
+        <section id="loan-section" class="tool-card">
+
+            <h2>🏦 Loan Eligibility Checker</h2>
+
+            <p>Enter your details to get an estimated result.</p>
+
+
+            <label for="age">Age</label>
+
+            <input
+                type="number"
+                id="age"
+                placeholder="Enter your age"
+            >
+
+
+            <label for="monthlyIncome">Monthly Income (₹)</label>
+
+            <input
+                type="number"
+                id="monthlyIncome"
+                placeholder="Enter monthly income"
+            >
+
+
+            <label for="loanCreditScore">Credit Score</label>
+
+            <input
+                type="number"
+                id="loanCreditScore"
+                placeholder="Enter credit score"
+            >
+
+
+            <label for="existingEmi">Existing Monthly EMI (₹)</label>
+
+            <input
+                type="number"
+                id="existingEmi"
+                placeholder="Enter existing EMI"
+            >
+
+
+            <label for="loanAmount">Loan Amount (₹)</label>
+
+            <input
+                type="number"
+                id="loanAmount"
+                placeholder="Enter loan amount"
+            >
+
+
+            <label for="loanTenure">Loan Tenure (Years)</label>
+
+            <input
+                type="number"
+                id="loanTenure"
+                placeholder="Enter loan tenure"
+            >
+
+
+            <button id="checkEligibilityButton">
+                Check Eligibility
+            </button>
+
+
+            <div id="eligibilityResult" class="result-card"></div>
+
+        </section>
+
+
+        <!-- EMI CALCULATOR -->
+        <section id="emi-section" class="tool-card">
+
+            <h2>🧮 EMI Calculator</h2>
+
+            <p>Calculate your estimated monthly loan payment.</p>
+
+
+            <label for="emiLoanAmount">
+                Loan Amount (₹)
+            </label>
+
+            <input
+                type="number"
+                id="emiLoanAmount"
+                placeholder="Enter loan amount"
+            >
+
+
+            <label for="interestRate">
+                Interest Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="interestRate"
+                placeholder="Enter annual interest rate"
+            >
+
+
+            <label for="emiTenure">
+                Loan Tenure (Years)
+            </label>
+
+            <input
+                type="number"
+                id="emiTenure"
+                placeholder="Enter loan tenure"
+            >
+
+
+            <button id="calculateEmiButton">
+                Calculate EMI
+            </button>
+
+
+            <div id="emiResult" class="result-card"></div>
+
+        </section>
+
+
+        <!-- CREDIT SCORE -->
+        <section id="credit-section" class="tool-card">
+
+            <h2>📊 Credit Score Analyzer</h2>
+
+            <p>Enter your credit score to see a simple analysis.</p>
+
+
+            <label for="creditScoreInput">
+                Credit Score
+            </label>
+
+            <input
+                type="number"
+                id="creditScoreInput"
+                placeholder="Enter your credit score"
+            >
+
+
+            <button id="analyzeCreditButton">
+                Analyze Credit Score
+            </button>
+
+
+            <div id="creditResult" class="result-card"></div>
+
+        </section>
+
+
+        <!-- AI FINANCIAL TIPS -->
+        <section id="ai-section" class="tool-card ai-card">
+
+            <h2>🤖 AI Financial Tips</h2>
+
+            <p>
+                Get simple financial insights based on your entered information.
+            </p>
+
+
+            <label for="aiIncome">
+                Monthly Income (₹)
+            </label>
+
+            <input
+                type="number"
+                id="aiIncome"
+                placeholder="Enter monthly income"
+            >
+
+
+            <label for="aiEmi">
+                Existing Monthly EMI (₹)
+            </label>
+
+            <input
+                type="number"
+                id="aiEmi"
+                placeholder="Enter existing EMI"
+            >
+
+
+            <label for="aiCreditScore">
+                Credit Score
+            </label>
+
+            <input
+                type="number"
+                id="aiCreditScore"
+                placeholder="Enter credit score"
+            >
+
+
+            <button id="aiButton">
+                Get Financial Tips
+            </button>
+
+
+            <div id="aiResult" class="result-card"></div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                AI Financial Assistant • Educational Project
+            </p>
+
+            <p>
+                This project provides estimates and educational information only.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
