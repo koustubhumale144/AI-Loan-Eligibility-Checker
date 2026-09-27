@@ -494,7 +494,7 @@ aiButton.addEventListener("click", async function () {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/financial-insights",
+            "/api/financial-insights",
             {
                 method: "POST",
 
