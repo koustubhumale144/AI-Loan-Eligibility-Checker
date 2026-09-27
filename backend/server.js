@@ -1,28 +1,26 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Home route
+// Serve the frontend files
+app.use(express.static(path.join(__dirname, "..")));
+
 app.get("/", (req, res) => {
-    res.json({
-        message: "AI Financial Assistant backend is running!"
-    });
+    res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
-// Financial Insights API
 app.post("/api/financial-insights", (req, res) => {
     console.log("Financial insights request received:", req.body);
 
     try {
         const { income, emi, creditScore } = req.body;
 
-        // Validate input
         if (!income || income <= 0 || emi < 0 || !creditScore || creditScore <= 0) {
             return res.status(400).json({
                 success: false,
@@ -30,14 +28,12 @@ app.post("/api/financial-insights", (req, res) => {
             });
         }
 
-        // Calculate EMI-to-income ratio
         const emiRatio = (emi / income) * 100;
 
         let emiInsight = "";
         let creditInsight = "";
         let tips = [];
 
-        // EMI analysis
         if (emiRatio <= 30) {
             emiInsight = `Your existing EMI is about ${emiRatio.toFixed(1)}% of your monthly income. This indicates a relatively manageable EMI burden.`;
             tips.push("Continue keeping your existing monthly obligations manageable.");
@@ -49,7 +45,6 @@ app.post("/api/financial-insights", (req, res) => {
             tips.push("Review your existing debts and monthly expenses before considering additional borrowing.");
         }
 
-        // Credit score analysis
         if (creditScore >= 750) {
             creditInsight = "Your credit score falls in the excellent range used by this project.";
             tips.push("Continue making credit payments on time and monitor your credit report.");
@@ -64,11 +59,9 @@ app.post("/api/financial-insights", (req, res) => {
             tips.push("Focus on consistent repayments and responsible credit management.");
         }
 
-        // General tips
         tips.push("Keep an emergency savings buffer for unexpected expenses.");
         tips.push("Compare loan costs, interest rates, fees, and repayment terms before borrowing.");
 
-        // Create final insight
         const insights = [
             `📊 EMI-to-Income Analysis`,
             emiInsight,
@@ -99,7 +92,6 @@ app.post("/api/financial-insights", (req, res) => {
     }
 });
 
-// Start server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
